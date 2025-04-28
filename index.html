@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+  }
+  
+ /* General body styling to ensure no content is hidden under the fixed header */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 80px; /* Adjust based on header height to avoid content being hidden */
+  }
+  
+  
+  
+  .home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    animation: slideButtom 1s  ease forwards;
+    animation-delay: .7s;
+  }
+  
+  .content h1 {
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1.2;
+    animation: slideButtom 1s  ease forwards;
+    animation-delay: .7s;
+  }
+  
+  .content h1 span {
+    color: white;
+    animation: slideButtom 1s  ease forwards;
+    animation-delay: .7s;
+  }
+  
+  .content h3 {
+    font-size: 25px;
+    color: cyan;
+    margin-top: 10px;
+    opacity: 0;
+    animation: slideButtom 1s  ease forwards;
+    animation-delay: .7s;
+  }
+  
+  .content p {
+    max-width: 500px;
+    margin: 20px 0;
+    line-height: 1.6;
+    animation: slideLeft 1s  ease forwards;
+    animation-delay: 1s;
+  }
+  .social{
+    animation: slideLeft 1s  ease forwards;
+    animation-delay: calc(.2s * var(--i));
+  }
+  .social a {
+    color: cyan;
+    font-size: 14px;
+    margin-right: 10px;
+    text-decoration: none;
+    border: 2px solid cyan;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+  }
+  
+  .social a:hover {
+    background: cyan;
+    color: #0f172a;
+    box-shadow: 0 0 8px cyan;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: cyan;
+    color: #000;
+    border-radius: 25px;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 10px cyan;
+    animation: pulseGlow 2s infinite ease-in-out;
+  }
+  
+  .btn:hover {
+    box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan,
+    0 0 100px cyan, 0 0 200px cyan;
+  }
+  
+  .image {
+    position: relative;
+    display: flex;
+    justify-content: flex-start; /* Aligns the content to the left */
+    align-items: center;
+  }
+
+  .outer-glow {
+    width: 400px; /* Increased size */
+    height: 400px; /* Increased size */
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(45deg, cyan, magenta);
+    animation: glow 3s infinite ease-in-out alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
+    margin-left: 100px; /* Adjust this value as needed */
+  }
+
+  .outer-glow img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #0f172a;
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 20px cyan, 0 0 40px magenta;
+    }
+    100% {
+      box-shadow: 0 0 35px magenta, 0 0 60px cyan;
+    }
+  }
+  @keyframes slideButtom {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+
+  /* Layout */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-img {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.glow-wrapper {
+  border-radius: 50%;
+  padding: 8px;
+  background: radial-gradient(circle, #00f7ff, transparent 70%);
+  box-shadow: 0 0 40px #00f7ff;
+  transition: 0.3s ease;
+}
+
+.glow-wrapper img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  transition: 0.3s ease;
+}
+
+.glow-wrapper:hover {
+  box-shadow: 0 0 60px #00f7ff;
+  transform: scale(1.05);
+}
+
+/* Text styles */
+.about-text {
+  flex: 1 1 500px;
+  color: white;
+}
+
+.about-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 8px #00f7ff;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.about-text h1 span {
+  color: #00f7ff;
+  text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  animation: slideInRight 1s ease forwards;
+  text-shadow: 1px 1px 5px #02d8ff;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #d1d5db;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
+  animation-delay: 0.5s;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Button */
+.about-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 1rem;
+  background: linear-gradient(to right, #00f7ff, #a855f7);
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px cyan,
+  0 0 25px cyan, 0 0 50px cyan,
+  0 0 100px cyan, 0 0 200px cyan;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    padding-top: 20px;
+  }
+
+}
+/* Keyframe for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframe for scale-up effect */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Keyframe for sliding effect */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply these animations to elements */
+.show-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.show-scale-up {
+  animation: scaleUp 1s ease-out forwards;
+}
+
+.show-slide-in {
+  animation: slideIn 1s ease-out forwards;
+}
+
+/* Adding hover effect on the button */
+.about-btn:hover {
+  background-color: darkviolet;
+  color: white;
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.services {
+  display: flex;
+  flex-direction: column; /* or row depending on layout */
+  align-items: center; /* centers children horizontally */
+  justify-content: flex-start; /* aligns children to the top vertically */
+  text-align: center; /* centers text inside the container */
+  padding: 2rem;
+}
+
+.services .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.services .section-title span {
+  color: #00ffff;
+  
+}
+
+#anil {
+  text-align: center;
+}
+
+.services-container {
+  display: flex;
+  justify-content: center; /* centers the service cards horizontally */
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: center; /* centers text inside the cards */
+}
+
+.service-card {
+  padding-left: 100px; /* Optional, adjust as needed */
+  margin-left: 10px;
+  background-color: #0f172a;
+  padding: 2rem;
+  align-items: center; /* centers content horizontally inside the card */
+  border-radius: 10px;
+  width: 360px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 25px blueviolet;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.service-card.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  color: #ffffff;
+  text-align: center; /* centers text inside the card */
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center; /* centers the paragraph text */
+}
+
+.service-card button {
+  background: #00ffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.service-card button:hover {
+  box-shadow: 0 0 5px cyan,
+    0 0 25px cyan, 0 0 50px cyan,
+    0 0 100px cyan, 0 0 200px cyan;
+}
+
+
+
+
+
+
+
+
+.circle-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto); /* 🔧 tighter columns */
+  column-gap: 120px;                        /* 🔧 adjust as needed */
+  row-gap: 30px;
+  justify-content: center;                /* 🔧 center the whole block */
+  align-items: center;
+}
+
+.circle {
+  width: 80px; /* ✅ proper width for the SVG circle */
+  height: 140px;
+  text-align: center;
+  position: relative;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+circle.bg {
+  fill: none;
+  stroke: #333;
+  stroke-width: 10;
+}
+
+circle.progress {
+  fill: none;
+  stroke: #00ffff;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 314; /* 2 * π * 50 (radius) */
+  stroke-dashoffset: calc(314 - (314 * var(--percent)) / 100);
+  transition: stroke-dashoffset 1s ease;
+}
+
+.percent-text {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  font-size: 1.2rem;
+  color: #00ffff;
+  font-weight: bold;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+
+
+
+
+.circle-label {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #fff;
+  text-align: center;
+}
+
+.skills-section {
+  padding: 60px 20px;
+  background-color: #0f172a;
+  color: #fff;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.skills-title span {
+  color: #00ffff;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.technical-skills, .professional-skills {
+  padding-left: 50px;
+  flex: 1;
+  min-width: 300px;
+}
+
+
+.technical-skills h3,
+.professional-skills h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px; 
+}
+
+.skill {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.skill i {
+  margin-right: 10px;
+  color: #ff6600;
+}
+
+.skill-bar {
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 5px;
+}
+
+.bar-fill {
+  background: #00ffff;
+  height: 100%;
+  text-align: right;
+  padding-right: 5px;
+  font-size: 12px;
+  line-height: 10px;
+  color: black;
+  border-radius: 10px;
+}
+
+.circle-skill::before {
+  content: attr(data-percent) "%";
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 2rem;
+  background-color: #0f172a;
+}
+
+.projects-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.projects-section .section-title span {
+  color: #00ffff;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  
+}
+.project-card {
+  background-color: #0f172a;
+  border-radius: 10px;
+  width: 360px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 25px rgb(153, 118, 187);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+  overflow: hidden;
+  cursor: pointer; /* Changes the cursor to a pointer */
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card */
+  box-shadow: 0 0 35px rgb(153, 118, 187); /* Increases the shadow on hover */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.project-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.project-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+/* Removed default animation & reset styles */
+.project-card,
+.projects-section .section-title {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Animate only when in view */
+.projects-section .section-title.animate {
+  animation: slideInTop 0.8s ease forwards;
+}
+
+.project-card.animate {
+  animation: smoothZoomIn 0.8s ease forwards;
+}
+
+.project-card.animate:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.project-card.animate:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Animation keyframes */
+@keyframes slideInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smoothZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+.contact-section {
+  padding-top: 50px;
+  padding-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding-bottom: 50px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.email-link {
+  color: #aaa;/* Make text white */
+  text-decoration: none; /* Remove underline */
+}
+
+.email-link:hover {
+  color: #00ffff; /* Optional: Change color on hover */
+}
+
+.contact-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-left h2 {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.contact-left h2 span {
+  color: #00f7ff;
+}
+
+.contact-left h4 {
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.contact-left p {
+  color: #aaa;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.contact-info i {
+  color: #00f7ff;
+  margin-right: 10px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons i {
+  color: #00f7ff;
+  font-size: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+}
+
+.contact-right {
+  flex: 1;
+  padding-right: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 300px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  background: #3d3d3d;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.contact-right textarea {
+  height: 150px;
+  resize: none;
+}
+
+.contact-right button {
+  background: #00f7ff;
+  border: none;
+  color: #000;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.contact-right button:hover {
+  box-shadow: 0 0 30px #00f7ff, 0 0 60px #00f7ff;
+}/* Basic styles for the logo */
+
+
+
+
+
+/* Add animation classes to trigger animations */
+.contact-left,
+.contact-right,
+.contact-right input,
+.contact-right textarea,
+.contact-right button {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Trigger animations when elements are visible */
+.contact-left.visible,
+.contact-right.visible,
+.contact-right input.visible,
+.contact-right textarea.visible,
+.contact-right button.visible {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Left Section Animation */
+.contact-left.visible {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+/* Right Section Animation */
+.contact-right.visible {
+  animation: slideInRight 0.8s ease forwards;
+}
+
+/* Input/Form Elements Animation */
+.contact-right input:nth-child(1).visible { animation-delay: 0.5s; }
+.contact-right input:nth-child(2).visible { animation-delay: 0.6s; }
+.contact-right input:nth-child(3).visible { animation-delay: 0.7s; }
+.contact-right textarea.visible { animation-delay: 0.8s; }
+.contact-right button.visible { animation-delay: 0.9s; }
+
+/* Keyframe Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Navigation bar */
+.nav {
+  display: flex;
+  gap: 40px; /* Adds consistent spacing between links */
+}
+
+/* Navigation links */
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+/* Active link */
+.nav a.active {
+  color: #ff7f50;
+}
+
+/* Hover underline effect */
+.nav a:hover {
+  color: #ff7f50;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0; /* Start from the left edge of the word */
+  width: 0;
+  height: 2px;
+  background-color: #ff7f50;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%; /* Animate underline to full width of the word */
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+/* Slide-down animation */
+@keyframes slideBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">Portfolio.</div>
+    <nav class="nav">
+      <a href="#home" style="--i:1">Home</a>
+    <a href="#About Me" style="--i:2">About</a>
+    <a href="#My Services" style="--i:3">Services</a>
+    <a href="#My Skills" style="--i:4">Skills</a>
+    <a href="#Latest Project" style="--i:5">Project</a>
+    <a href="#Contact Me" style="--i:6">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home" id="home" >
+    <div class="content">
+      <h2>Hello, It's Me<br></h2>
+      <h1><span>Maggam Anil</span></h1>
+      <h3>And I'm a <span class="highlight" id="typed-text" style="color:rgb(15, 165, 30);box-shadow: #00ffff; font-size: 30px;font-weight: bold;"></span></h3>
+      <p>
+         I passionate about building secure and scalable web applications. I specialize in .NET Core, Azure, C#, Web Api, MVC  and modern frontend technologies like JavaScript and Angular. I’m dedicated to delivering high-quality solutions that are both functional and user-friendly.
+      </p>
+      <div class="social">
+        <a href="https://www.facebook.com/yourprofile" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        <a href="https://wa.me/9063605934?text=Hello%20I%20want%20to%20ask%20about%20your%20services" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        <a href="https://www.instagram.com/itz____me_anil__" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <a href="/images/CV/MAGGAM ANIL1.pdf" download class="btn">Download CV</a>
+    </div>
+
+    <div class="image">
+        <div class="outer-glow">
+          <img src="images/WhatsApp Image 2025-04-15 at 9.59.17 PM.jpeg" alt="Profile" />
+        </div>
+    </div>
+  </section>
+
+  <section class="about" id="About Me" data-aos="fade-up">
+    <div class="about-container">
+      <div class="about-img" data-aos="fade-right">
+        <div class="glow-wrapper">
+          <img src="images/WhatsApp Image 2025-04-15 at 9.59.17 PM.jpeg" alt="Anil" />
+        </div>
+      </div>
+      <div class="about-text" data-aos="fade-left">
+        <h1 class="show-slide-in">About <span>Me</span></h1>
+        <h2 class="show-fade-in">Full Stack Developer!</h2>
+        <p class="show-fade-in">
+         
+          <p>
+          Developed a secure and scalable booking system using .NET Core, featuring user authentication with Identity Framework. Implemented registration, login, forgot password, and social login via Google and Facebook. Added SMTP-based email verification and role-based access control to ensure secure access to booking features.
+          </p>
+          <p>
+          Users can browse hotels and restaurants, make reservations, and manage their bookings. The admin panel allows efficient management of users, bookings, and listings. The application is deployed on Azure Web Services for enhanced scalability, security, and high availability.
+          </p>
+          <p>
+          <strong>Technologies:</strong> .NET Core, Identity Framework, SQL Server, Entity Framework, Razor Pages/MVC, SMTP, Google & Facebook Authentication, HTML, Bootstrap, Azure Web Services.
+          </p>
+          
+        </p>
+        <a href="#" class="about-btn show-scale-up">More About Me</a>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="My Services">
+    <h2 class="section-title">My <span>Services</span></h2>
+    <div class="services-container">
+      <div class="service-card">
+        <i class="fas fa-code icon"></i>
+        <h3>UI/UX Design</h3>
+<p>Designed a clean and user-friendly interface for a Hotel Booking Web App, focusing on easy navigation and responsive layout.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-object-group icon"></i>
+        <h3>Web Design</h3>
+        <p>Created responsive and visually appealing web pages using HTML, CSS, and Bootstrap for a smooth user experience.</p>        
+        <button>Learn More</button>
+      </div>
+      <div class="service-card">
+        <i class="fab fa-apple icon"></i>
+        <h3>App Design</h3>
+        <p>Designed a modern and user-friendly layout for a mobile app, focusing on clean UI and smooth user interaction.</p>        
+        <button>Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="My Skills">
+    <h2 class="skills-title">My <span>Skills</span></h2>
+    <div class="skills-container">
+      
+      <!-- Technical Skills -->
+      <div class="technical-skills">
+        
+        <h3>Technical Skills</h3>
+        <div class="skill">
+          <i class="fab fa-python"></i> HTML, CSS, JavaScript
+          <div class="skill-bar"><div class="bar-fill" style="width: 50%;">80%</div></div>
+        </div>
+        
+        <div class="skill">
+          <i class="fab fa-html5"></i> MVC, .NET Core
+          <div class="skill-bar"><div class="bar-fill" style="width: 90%;">90%</div></div>
+        </div>
+        
+        <div class="skill">
+          <i class="fab fa-python"></i> ASP.NET, ADO.NET
+          <div class="skill-bar"><div class="bar-fill" style="width: 75%;">75%</div></div>
+        </div> 
+        
+        <div class="skill">
+          <i class="fab fa-js-square"></i> AJAX, jQuery
+          <div class="skill-bar"><div class="bar-fill" style="width: 75%;">75%</div></div>
+        </div>
+        
+        <div class="skill">
+          <i class="fab fa-css3-alt"></i> Web API
+          <div class="skill-bar"><div class="bar-fill" style="width: 80%;">80%</div></div>
+        </div>
+        
+        <div class="skill">
+          <i class="fab fa-angular"></i> Angular
+          <div class="skill-bar"><div class="bar-fill" style="width: 70%;">70%</div></div>
+        </div>
+        
+        <div class="skill">
+          <i class="fab fa-csharp"></i> C#.NET
+          <div class="skill-bar"><div class="bar-fill" style="width: 75%;">75%</div></div>
+        </div>
+        
+       
+      </div>
+  
+      <!-- Professional Skills -->
+      <div class="professional-skills">
+        <h3>Professional Skills</h3>
+        <div class="circle-container">
+          <div class="circle">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50"/>
+              <circle class="progress" cx="60" cy="60" r="50" style="--percent: 90"/>
+            </svg>
+            <div class="percent-text">90%</div>
+            <div class="label">Creativity</div>
+          </div>
+      
+          <div class="circle">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50"/>
+              <circle class="progress" cx="60" cy="60" r="50" style="--percent: 65"/>
+            </svg>
+            <div class="percent-text">65%</div>
+            <div class="label">Communication</div>
+          </div>
+      
+          <div class="circle">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50"/>
+              <circle class="progress" cx="60" cy="60" r="50" style="--percent: 75"/>
+            </svg>
+            <div class="percent-text">75%</div>
+            <div class="label">Problem Solving</div>
+          </div>
+      
+          <div class="circle">
+            <svg class="progress-ring" width="120" height="120">
+              <circle class="bg" cx="60" cy="60" r="50"/>
+              <circle class="progress" cx="60" cy="60" r="50" style="--percent: 85"/>
+            </svg>
+            <div class="percent-text">85%</div>
+            <div class="label">Teamwork</div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </section>
+  <section class="projects-section" id="Latest Project">
+    <h1 class="section-title">Latest <span>Project</span></h1>
+    <div class="projects-container">
+      <div class="project-card">
+        <a href="https://github.com/anilallu189?tab=repositories" target="_blank">
+          <img src="https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg" alt="UI/UX Design">
+        </a>
+      </div>
+      <div class="project-card">
+        <a href="https://github.com/anilallu189?tab=repositories" target="_blank">
+          <img src="https://img.freepik.com/premium-photo/programming-background-with-person-working-with-codes-computer_23-2150010148.jpg" alt="Website Development">
+        </a>
+      </div>
+      <div class="project-card">
+        <a href="https://foodmart.azurewebsites.net" target="_blank">
+          <img src="https://cdn.pixabay.com/photo/2022/01/17/09/03/program-6944163_1280.jpg" alt="App Design">
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  
+  <div class="contact-section" id="Contact Me">
+    <div class="contact-left">
+      <h2 style="text-align: center;">Contact <span>Me</span></h2>
+      <h4>Let’s Work Together</h4>
+      <p><p>
+        I am open to exciting opportunities, collaborations, or project discussions. Please feel free to reach out if you’d like to connect or discuss how I can contribute to your team. My resume is attached for your reference.
+        </p>
+        </p>
+      <div class="contact-info">
+        <p><i class="fas fa-paper-plane"></i><a href="mailto:anilmaggam123@gmail.com" class="email-link">anilmaggam123@gmail.com</a></p>
+
+        <p><i class="fas fa-phone-alt"></i>+91-8328201802</p>
+      </div>
+      <div class="social">
+        <a href="https://www.facebook.com/yourprofile" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        <a href="https://wa.me/9063605934?text=Hello%20I%20want%20to%20ask%20about%20your%20services" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        <a href="https://www.instagram.com/itz____me_anil__" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  
+    <div class="contact-right">
+      <input type="text" placeholder="Enter Your Name" />
+      <input type="email" placeholder="Enter Your Email" />
+      <input type="text" placeholder="Enter Your Subject" />
+      <textarea placeholder="Enter Your Message"></textarea>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+  
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+     AOS.init({
+    duration: 1000, // Animation duration
+    once: true,     // Animation happens only once
+  });
+    const textArray = [
+      "Full Stack .Net Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "ASP.NET Developer",
+      "MVC Developer",
+      ".NET Core Developer",
+      "Web Api Developer",
+      "SQL Developer",
+      "Angular Developer",
+      "C# Developer",
+    ];
+
+    let index = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const speed = 100;
+    const pause = 1500;
+    const target = document.getElementById("typed-text");
+
+    function typeEffect() {
+      const current = textArray[index];
+      if (isDeleting) {
+        target.textContent = current.substring(0, charIndex--);
+        if (charIndex < 0) {
+          isDeleting = false;
+          index = (index + 1) % textArray.length;
+        }
+      } else {
+        target.textContent = current.substring(0, charIndex++);
+        if (charIndex > current.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, pause);
+          return;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : speed);
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+
+
+  
+  const cards = document.querySelectorAll('.service-card');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate');
+        }, i * 200); // staggered delay for animation
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+  window.addEventListener('DOMContentLoaded', () => {
+    const circles = document.querySelectorAll('.circle-skill');
+    if (!sessionStorage.getItem('skillsAnimated')) {
+      circles.forEach(circle => {
+        const percent = circle.getAttribute('data-percent');
+        circle.style.border = '10px solid transparent';
+        setTimeout(() => {
+          circle.classList.add('loaded');
+        }, 200);
+      });
+      sessionStorage.setItem('skillsAnimated', 'true');
+    } else {
+      circles.forEach(circle => {
+        circle.classList.add('loaded');
+      });
+    }
+  });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Create an IntersectionObserver to detect when elements are in view
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add 'visible' class to trigger the animation
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Stop observing after triggering
+      }
+    });
+  }, {
+    threshold: 0.5 // Trigger animation when 50% of the element is visible
+  });
+
+  // Observe elements for scroll-triggered animation
+  const contactLeft = document.querySelector('.contact-left');
+  const contactRight = document.querySelector('.contact-right');
+  const inputs = document.querySelectorAll('.contact-right input, .contact-right textarea, .contact-right button');
+  const socialIcons = document.querySelectorAll('.social-icons i');
+
+  observer.observe(contactLeft);
+  observer.observe(contactRight);
+  inputs.forEach(input => observer.observe(input));
+  socialIcons.forEach(icon => observer.observe(icon));
+});
+const Observe = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target); // Only once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.projects-section .section-title, .project-card').forEach(el => {
+    observer.observe(el);
+  });
+
+  </script>
+</body>
+</html>
